@@ -40,6 +40,9 @@ Run the following commands to navigate to the project directory, create and acti
 
 ```bash
 cd ~/cloudshell_open/bwai-ramadan-03/adk-demos
+```
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -69,13 +72,13 @@ GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
 GOOGLE_CLOUD_LOCATION=us-central1
 ```
 
-*Tip: To save and exit nano, press `Ctrl+O`, `Enter`, and then `Ctrl+X`.*
+*Tip: To save and exit nano, press `Ctrl+X`, `Y`, and then `Enter`.*
 
 ## Run the Travel Helper Agent
 
 The Travel Helper is a "Root Agent" built with ADK that orchestrates multiple sub-agents (for searching the web, checking weather, and converting currency). 
 
-### Step 1: Initialize Sub-Agents
+## Step 1: Initialize Sub-Agents
 
 Navigate to the sub-agents directory and initialize each sub-agent by running them one by one in the terminal:
 
@@ -107,7 +110,7 @@ adk run ./weather
 ```
 *Tip: Type "hi" then "exit".*
 
-### Step 2: Test the Main Travel Helper Agent
+## Step 2: Test the Main Travel Helper Agent
 
 Navigate back to the main folder and run the web interface again on **port 8080** to test the main agent:
 
@@ -118,7 +121,7 @@ adk web --port 8080
 
 **Preview the Main Agent:**
 1. Use the **Web Preview** button again for port `8080` (or refresh your previous preview tab).
-2. Select your agent from the list and start chatting!
+2. Select travel_helper agent from the list and start chatting!
 3. *Try asking: "Hi, I'm from Turkey and I'm traveling from Istanbul to Berlin. Can you help me plan?"*
 
 ## Summary
