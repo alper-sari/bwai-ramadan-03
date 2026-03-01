@@ -77,19 +77,35 @@ The Travel Helper is a "Root Agent" built with ADK that orchestrates multiple su
 
 ### Step 1: Initialize Sub-Agents
 
-Navigate to the sub-agents directory and start the web interface on **port 8080**:
+Navigate to the sub-agents directory and initialize each sub-agent by running them one by one in the terminal:
 
 ```bash
 cd ~/cloudshell_open/bwai-ramadan-03/adk-demos/travel_helper/sub_agents/
-adk web --port 8080
 ```
 
-**Preview the Application:**
-1. Click the **Web Preview** button (an eye icon) in the Cloud Shell toolbar.
-2. Select **Change port**.
-3. Type `8080` and click **Change and Preview**.
-4. A new browser tab will open. Select each agent from the list one by one and initialize them by sending a simple prompt like `"hi"`.
-5. Once you have initialized all sub-agents, stop the server in your terminal by pressing `Ctrl+C`.
+**Initialize Greeter Agent:**
+```bash
+adk run ./greeter
+```
+*Tip: Type "hi" to initialize, then type "exit" to quit the agent session.*
+
+**Initialize Currency Agent:**
+```bash
+adk run ./currency
+```
+*Tip: Type "hi" then "exit".*
+
+**Initialize Google Search Agent:**
+```bash
+adk run ./google_search
+```
+*Tip: Type "hi" then "exit".*
+
+**Initialize Weather Agent:**
+```bash
+adk run ./weather
+```
+*Tip: Type "hi" then "exit".*
 
 ### Step 2: Test the Main Travel Helper Agent
 
