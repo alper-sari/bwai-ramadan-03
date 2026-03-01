@@ -32,24 +32,14 @@ Next, enable the required Google APIs for this tutorial. We need the Vertex AI A
 
 <walkthrough-enable-apis apis="aiplatform.googleapis.com"></walkthrough-enable-apis>
 
-## Clone the Repository
-
-We need to clone the repository containing the Travel Helper Agent code built with ADK.
-
-Run the following command in your Cloud Shell to clone the repository and navigate into the project directory:
-
-```bash
-git clone https://github.com/alper-sari/bwai-ramadan-03.git
-cd adk-demos
-```
-
 ## Set Up Your Development Environment
 
 We will create a Python virtual environment to keep our ADK tools and dependencies organized.
 
-Run the following commands to create and activate a virtual environment, then install the required Agent Development Kit (ADK) packages:
+Run the following commands to navigate to the project directory, create and activate a virtual environment, and then install the required Agent Development Kit (ADK) packages:
 
 ```bash
+cd ~/cloudshell_open/bwai-ramadan-03/adk-demos
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -83,32 +73,37 @@ GOOGLE_CLOUD_LOCATION=us-central1
 
 ## Run the Travel Helper Agent
 
-The Travel Helper is a "Root Agent" built with ADK that orchestrates multiple sub-agents (for searching the web, checking weather, and converting currency). You can interact with your newly built agent in two ways.
+The Travel Helper is a "Root Agent" built with ADK that orchestrates multiple sub-agents (for searching the web, checking weather, and converting currency). 
 
-### Option 1: Chat in the Terminal (CLI)
+### Step 1: Initialize Sub-Agents
 
-Use the `adk run` command to start a text-based chat right in your terminal:
+Navigate to the sub-agents directory and start the web interface on **port 8080**:
 
 ```bash
-adk run ./travel_helper
+cd ~/cloudshell_open/bwai-ramadan-03/adk-demos/travel_helper/sub_agents/
+adk web --port 8080
 ```
 
-*Try asking: "Hi, I'm from Turkey and I'm traveling from Istanbul to Berlin. Can you help me plan?"*
+**Preview the Application:**
+1. Click the **Web Preview** button (an eye icon) in the Cloud Shell toolbar.
+2. Select **Change port**.
+3. Type `8080` and click **Change and Preview**.
+4. A new browser tab will open. Select each agent from the list one by one and initialize them by sending a simple prompt like `"hi"`.
+5. Once you have initialized all sub-agents, stop the server in your terminal by pressing `Ctrl+C`.
 
-### Option 2: Use the Web Interface (Port Forwarding)
+### Step 2: Test the Main Travel Helper Agent
 
-Cloud Shell allows you to preview web applications running on specific ports. The ADK comes with a built-in web UI. Let's run the agent on **port 8000**.
+Navigate back to the main folder and run the web interface again on **port 8080** to test the main agent:
 
-1. Start the web UI:
-   ```bash
-   adk web --port 8000
-   ```
+```bash
+cd ~/cloudshell_open/bwai-ramadan-03/adk-demos
+adk web --port 8080
+```
 
-2. **Preview the Application:**
-   * Click the **Web Preview** button (an eye icon) in the Cloud Shell toolbar.
-   * Select **Change port**.
-   * Type `8000` and click **Change and Preview**.
-   * A new browser tab will open. Select your agent from the list and start chatting!
+**Preview the Main Agent:**
+1. Use the **Web Preview** button again for port `8080` (or refresh your previous preview tab).
+2. Select your agent from the list and start chatting!
+3. *Try asking: "Hi, I'm from Turkey and I'm traveling from Istanbul to Berlin. Can you help me plan?"*
 
 ## Summary
 
@@ -125,10 +120,8 @@ You have successfully:
 
 ## Clean up
 
-To avoid cluttering your Cloud Shell environment, you can deactivate your virtual environment and delete the cloned repository if you no longer need them.
+To avoid cluttering your Cloud Shell environment, you can deactivate your virtual environment if you no longer need it.
 
 ```bash
 deactivate
-cd ..
-rm -rf adk-demos
 ```
